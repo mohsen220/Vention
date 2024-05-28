@@ -10,7 +10,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  test:
+  Pipeline:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -30,7 +30,7 @@ jobs:
       - name: Run Cypress Tests
         uses: cypress-io/github-action@v2
         with:
-          start: npm start # Replace with the command to start your server if needed
+          start: npm run dev # Start Server
           wait-on: 'http://localhost:8080' # Adjust if your local server runs on a different port
           wait-on-timeout: 60 # seconds to wait for your server to start
           record: true
