@@ -1,0 +1,35 @@
+name: CI
+
+# Controls when the action will run. This configuration triggers the workflow on push
+# events to any branch and pull request events to any branch.
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  test:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14' # Set this to the node version you need
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Cypress Tests
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm start # Replace with the command to start your server if needed
+          wait-on: 'http://localhost:3000' # Adjust if your local server runs on a different port
+          wait-on-timeout: 60 # seconds to wait for your server to start
