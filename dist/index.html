@@ -1,0 +1,62 @@
+<!-- dist/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<style>
+  html,body {
+    margin: 0;
+    height: 100%;
+  }
+  .main_layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    height: 100%;
+  }
+  .toolbar {
+    display: flex;
+    padding: 1em;
+    gap: 1em;
+    flex-direction: column;
+    background-color:lightsteelblue;
+  }
+  .position {
+    display: flex;
+  }
+  #view {
+    overflow: auto;
+  }
+</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vention Takehome Exercise</title>
+</head>
+<body class="main_layout">
+  <div class="toolbar">
+    <button id="add_sphere">Add sphere</button>
+    <button id="add_cube">Add cube</button>
+    <span>Position</span>
+    <span>
+      X:
+      <input id="pos_x" type="number" value="0" step="1"/>
+    </span>
+    <span>
+      Y:
+      <input id="pos_y" type="number" value="0" step="1"/>
+    </span>
+    <span>
+      Z:
+      <input id="pos_z" type="number" value="0" step="1"/>
+    </span>
+    <span>
+      Color:
+      <input id="color" type="color"/>
+    </span>
+    <button id="remove_last">Remove last</button>
+    <button id="remove_all">Remove all</button>
+
+  </div>
+  <div id="view"></div>
+  <script src="bundle.js"></script>
+</body>
+
+</html>
