@@ -27,21 +27,12 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-    - name: Start server
-        run: npm run dev &
-        env:
-          CI: true  # Environment variable to indicate running in CI
-
-      - name: Wait for server to be ready
-        run: wget --retry-connrefused --no-check-certificate -T 30 http://localhost:8080
-        # Adjust the URL/port accordingly
-
       - name: Run Cypress Tests
         uses: cypress-io/github-action@v2
         with:
-          start: ''  # As server is already started, no need to start again here
+          start: npm run dev  # Make sure this script starts your server properly
           wait-on: 'http://localhost:8080'
-          wait-on-timeout: 60
+          wait-on-timeout: 60  # Adjust timeout as necessary
           record: true
           parallel: true
           group: 'CI Tests'
