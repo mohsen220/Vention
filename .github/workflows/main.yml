@@ -35,8 +35,8 @@ jobs:
           wait-on-timeout: 60  # Adjust timeout as necessary
           record: true
           parallel: true
-          group: 'CI Tests'
           browser: chrome
           headless: true
           spec: 'cypress/integration/*.spec.js'
-          config-file: 'cypress.json'
+          config-file: 'cypress.config.js'
+          group: 'CI Tests'
