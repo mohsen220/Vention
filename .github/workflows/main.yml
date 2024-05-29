@@ -37,6 +37,5 @@ jobs:
           parallel: true
           browser: chrome
           headless: true
-          spec: 'cypress/integration/*.spec.js'
           config-file: 'cypress.config.js'
           group: 'CI Tests'
