@@ -39,3 +39,5 @@ jobs:
           headless: true
           config-file: 'cypress.config.js'
           group: 'CI Tests'
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
