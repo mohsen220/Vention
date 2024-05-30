@@ -1,20 +1,15 @@
-name: CI
+name: CI/CD Pipeline
 
-# Controls when the action will run. This configuration triggers the workflow on push
-# events to any branch and pull request events to any branch.
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   Pipeline:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -22,7 +17,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14' # Set this to the node version you need
+          node-version: '14' # Adjust this to your project's Node.js version
 
       - name: Install Dependencies
         run: npm install
@@ -30,9 +25,9 @@ jobs:
       - name: Run Cypress Tests
         uses: cypress-io/github-action@v2
         with:
-          start: npm run dev  # Make sure this script starts your server properly
+          start: npm run dev
           wait-on: 'http://localhost:8080'
-          wait-on-timeout: 60  # Adjust timeout as necessary
+          wait-on-timeout: 60
           record: true
           parallel: true
           browser: chrome
@@ -42,3 +37,20 @@ jobs:
           video: true
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
+      - name: Restart EC2 Server
+        if: success()
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ec2-user
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            # Using the secret token to clone the repo
+            git clone https://github-token:${{ secrets.GIT_TOKEN }}@github.com/mohsen220/Vention.git /home/ec2-user/project/Vention || git -C /home/ec2-user/project/Vention pull
+            cd /home/ec2-user/project/Vention
+
+            # Install dependencies and run the application
+            npm install
+            pm2 restart all || pm2 start npm --name "my-app" -- run dev
