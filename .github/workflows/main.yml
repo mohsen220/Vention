@@ -41,7 +41,6 @@ jobs:
     
       - name: Restart and Deploy EC2 Server
         if: success()
-        uses: actions/checkout@v2 
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           EC2_HOST: ${{ secrets.EC2_HOST }}
