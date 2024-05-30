@@ -48,9 +48,10 @@ jobs:
           port: 22
           script: |
             # Using the secret token to clone the repo
+            echo "STEP 1: Cloning | Pulling repository..."
             git clone https://github-token:${{ secrets.GIT_TOKEN }}@github.com/mohsen220/Vention.git /home/ec2-user/project/Vention || git -C /home/ec2-user/project/Vention pull
             cd /home/ec2-user/project/Vention
-
+            echo "STEP 2: Running Application..."
             # Install dependencies and run the application
             npm install
-            pm2 restart all || pm2 start npm --name "my-app" -- run dev
+            npm run dev
