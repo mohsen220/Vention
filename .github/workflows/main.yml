@@ -38,21 +38,40 @@ jobs:
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
-      - name: Restart EC2 Server
+    
+      - name: Restart and Deploy EC2 Server
         if: success()
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ec2-user
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
-          script: |
-            # Using the secret token to clone the repo
-            echo "STEP 1: Cloning | Pulling repository..."
-            git clone https://github-token:${{ secrets.GIT_TOKEN }}@github.com/mohsen220/Vention.git /home/ec2-user/project/Vention || git -C /home/ec2-user/project/Vention pull
-            cd /home/ec2-user/project/Vention
-            ls
-            echo "STEP 2: Running Application..."
-            # Install dependencies and run the application
-            npm install
-            npm run dev
+        uses: actions/checkout@v2 
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+        run: |
+          echo "STEP 1: Setting up SSH..."
+          mkdir -p ~/.ssh/
+          echo "${SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H $EC2_HOST >>
+          ~/.ssh/known_hosts
+          echo "STEP 2: Cloning | Pulling repository..."
+          git clone https://github-token:${
+          { secrets.GIT_TOKEN }}@github.com/mohsen220/Vention.git /home/ec2-user/project/Vention || git -C /home/ec2-user/project/Vention pull
+          cd /home/ec2-user/project/Vention
+          ls
+          echo "STEP 3: Running Application..."
+          npm install
+          npm run dev
+
+
+
+
+    # script: |
+    #   # Using the secret token to clone the repo
+    #   echo "STEP 1: Cloning | Pulling repository..."
+    #   git clone https://github-token:${{ secrets.GIT_TOKEN }}@github.com/mohsen220/Vention.git /home/ec2-user/project/Vention || git -C /home/ec2-user/project/Vention pull
+    #   cd /home/ec2-user/project/Vention
+    #   ls
+    #   echo "STEP 2: Running Application..."
+    #   # Install dependencies and run the application
+    #   npm install
+    #   npm run dev
