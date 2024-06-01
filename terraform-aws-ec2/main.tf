@@ -47,3 +47,8 @@ resource "aws_security_group" "my_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+resource "route53_zone" "my_vention_zone" {
+  name = "venti-on.com"
+}
+
