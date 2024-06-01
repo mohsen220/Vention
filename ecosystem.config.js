@@ -2,8 +2,8 @@ module.exports = {
   apps: [
     {
       name: "my-app",
-      script: "npm",
-      args: "run dev",
+      script: "./node_modules/.bin/webpack",
+      args: "serve",
       watch: true,
       env: {
         NODE_ENV: "development",
