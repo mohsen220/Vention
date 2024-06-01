@@ -65,6 +65,8 @@ jobs:
             fi
 
             echo "STEP 3: Installing Dependencies and Running Application..."
-            npm install --production
+            echo "show the current directory"
+            pwd
+            npm install
             pm2 reload ecosystem.config.js --update-env || pm2 start ecosystem.config.js --env production
           EOF
