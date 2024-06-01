@@ -2,7 +2,8 @@ module.exports = {
   apps: [
     {
       name: "my-app",
-      script: "./src/index.js",
+      script: "npm",
+      args: "run dev",
       watch: true,
       env: {
         NODE_ENV: "development",
