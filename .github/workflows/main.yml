@@ -58,10 +58,14 @@ jobs:
             mkdir -p /home/ec2-user/project/Vention
             cd /home/ec2-user/project/Vention
 
-            # Pulling latest changes from the repository
-            git clone https://github-token:${{ secrets.GIT_TOKEN }}@github.com/mohsen220/Vention.git . || git pull
+            # Handling repository initialization
+            if [ -d .git ]; then
+                git pull
+            else
+                git clone https://github-token:${{ secrets.GIT_TOKEN }}@github.com/mohsen220/Vention.git .
+            fi
 
-            echo "STEP 3: Running Application..."
-            npm install
-            npm run dev
+            echo "STEP 3: Installing Dependencies and Running Application..."
+            npm install --production
+            pm2 reload ecosystem.config.js --update-env || pm2 start ecosystem.config.js --env production
           '
