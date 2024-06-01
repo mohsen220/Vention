@@ -11,6 +11,7 @@ module.exports = {
     static: {
       directory: path.resolve(__dirname, "dist"),
     },
+    allowedHosts: ["venti-on.com", "www.venti-on.com"],
     open: false,
   },
 };
