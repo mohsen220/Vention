@@ -51,7 +51,7 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H $EC2_HOST >> ~/.ssh/known_hosts
-
+          
           echo "STEP 2: Cloning | Pulling repository..."
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ec2-user@${EC2_HOST} '
             # Ensuring the project directory exists and navigating there
