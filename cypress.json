@@ -1,0 +1,10 @@
+{
+  "baseUrl": "http://localhost:8080",
+  "viewportWidth": 1000,
+  "viewportHeight": 660,
+  "video": true,
+  "screenshotsFolder": "cypress/screenshots",
+  "videosFolder": "cypress/videos",
+  "supportFile": "cypress/support/index.js",
+  "pluginsFile": "cypress/plugins/index.js"
+}
