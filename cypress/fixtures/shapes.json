@@ -1,0 +1,58 @@
+{
+  "sphere": {
+    "color": "#000000",
+    "position": {
+      "x": "2",
+      "y": "2",
+      "z": "2"
+    },
+    "type": "sphere"
+  },
+  "cube": {
+    "color": "#832020",
+    "position": {
+      "x": "3",
+      "y": "3",
+      "z": "3"
+    },
+    "type": "cube"
+  },
+  "multipleShapes": [
+    {
+      "color": "#000000",
+      "position": {
+        "x": "2",
+        "y": "2",
+        "z": "2"
+      },
+      "type": "sphere"
+    },
+    {
+      "color": "#832020",
+      "position": {
+        "x": "3",
+        "y": "3",
+        "z": "3"
+      },
+      "type": "cube"
+    },
+    {
+      "color": "#000000",
+      "position": {
+        "x": "4",
+        "y": "4",
+        "z": "4"
+      },
+      "type": "sphere"
+    },
+    {
+      "color": "#000000",
+      "position": {
+        "x": "5",
+        "y": "5",
+        "z": "5"
+      },
+      "type": "cube"
+    }
+  ]
+}

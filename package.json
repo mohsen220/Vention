@@ -10,12 +10,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@percy/cli": "^1.28.7",
+    "@percy/cypress": "^3.1.2",
+    "cypress": "^13.10.0",
+    "cypress-visual-regression": "^5.0.1",
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4"
   },
   "dependencies": {
-    "cypress": "^13.10.0",
     "three": "^0.163.0"
   }
 }
