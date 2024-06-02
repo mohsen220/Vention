@@ -303,7 +303,7 @@ describe("UI Testing", () => {
     cy.get("#add_sphere").click();
     cy.wait(5000);
 
-    // Take a snanpshot
+    // Take a snanpshotf
     cy.percySnapshot("Sphere Shape");
   });
 });
