@@ -115,10 +115,11 @@ AWS Infrastructure Overview
 ```
 ### Components
 
-- **Route 53 DNS Zone**: Manages the domain `venti-on.com`.
-- **EC2 Instance**: An instance named `MyVentionInstance` running in the `us-east-2` region.
-- **Security Group**: Named `my_security_group`, allowing inbound traffic on ports 22 (SSH), 80 (HTTP), and 8080 (Custom).
-- **Key Pair**: `VentionKey`, used for secure SSH access to the EC2 instance.
-- **IAM User**: `ventionuser`, with permissions to manage the above resources.
+> - **Route 53 DNS Zone**: Manages the domain `venti-on.com`.
+> - **EC2 Instance**: An instance named `MyVentionInstance` running in the `us-east-2` region.
+> - **Security Group**: Named `my_security_group`, allowing inbound traffic on ports 22 (SSH), 80 (HTTP), and 8080 (Custom).
+> - **Key Pair**: `VentionKey`, used for secure SSH access to the EC2 instance.
+> - **IAM User**: `ventionuser`, with permissions to manage the above resources.
+
 
 
