@@ -68,3 +68,55 @@ Below is a table summarizing the test cases, their actions, and the expected out
 | **Error Handling - Invalid Position (String)** :x:          | Add a sphere with string positions, validate | Handle invalid input gracefully, validate error or lack of shape creation |
 | **Error Handling - Invalid Position (Special Characters)** :interrobang: | Add a sphere with special characters as positions, validate | Handle invalid input gracefully, validate error or lack of shape creation |
 
+## AWS Infrastructure Overview
+
+This diagram provides an overview of the AWS setup for the project, including the Route 53 DNS zone, EC2 instance, security group, key pair, and IAM user.
+
+```plaintext
+AWS Infrastructure Overview
+===========================
+
+                     +---------------------+
+                     |   Route 53 Zone     |
+                     |   (venti-on.com)    |
+                     +---------+-----------+
+                               |
+                               v
+                     +---------+-----------+
+                     |    EC2 Instance      |
+                     | (MyVentionInstance)  |
+                     +---------+-----------+
+                               |
+                               v
+                     +---------+-----------+
+                     | Security Group      |
+                     | (my_security_group) |
+                     +---------+-----------+
+                               |
+                               v
+                 +-------------+---------------+
+                 |   Inbound Traffic Rules     |
+                 |   (Ports 22, 80, 8080)      |
+                 +-------------+---------------+
+                               |
+                               v
+                     +---------+-----------+
+                     |   Key Pair           |
+                     |  (VentionKey)        |
+                     +---------+-----------+
+                               |
+                               v
+                     +---------+-----------+
+                     | IAM User             |
+                     | (ventionuser)        |
+                     +---------------------+
+
+### Components
+
+- **Route 53 DNS Zone**: Manages the domain `venti-on.com`.
+- **EC2 Instance**: An instance named `MyVentionInstance` running in the `us-east-2` region.
+- **Security Group**: Named `my_security_group`, allowing inbound traffic on ports 22 (SSH), 80 (HTTP), and 8080 (Custom).
+- **Key Pair**: `VentionKey`, used for secure SSH access to the EC2 instance.
+- **IAM User**: `ventionuser`, with permissions to manage the above resources.
+
+

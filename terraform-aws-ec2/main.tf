@@ -52,3 +52,9 @@ resource "route53_zone" "my_vention_zone" {
   name = "venti-on.com"
 }
 
+resource "iam_user" "my_vention_user" {
+  name = "VentionUser"
+  policy = "arn:aws:iam::aws:policy/AdministratorAccess"
+
+}
+
