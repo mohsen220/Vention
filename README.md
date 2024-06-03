@@ -129,7 +129,7 @@ While enhancing my UI testing framework, I attempted to integrate Percy to captu
 ## Cypress Dashboard Reporting
 For comprehensive test reporting, I utilize Cypress's detailed reporting features. These features provide extensive logs and error messages, crucial for debugging and understanding test flows.
 
-![Cypress Test Report](/Vention/images/pic1.png)
+![Cypress Test Report](/images/pic1.png)
 
 
 
