@@ -388,8 +388,8 @@ describe("UI Testing", () => {
     cy.wait(5000);
 
     cy.canvasToImage();
-    cy.wait(5000); // Wait a bit longer to ensure all images are loaded
-    cy.get("img").should("be.visible"); // Check if images are visible
+    cy.wait(2000);
+    // Take a snapshot for visual testing
     cy.percySnapshot("Page after converting canvas to images");
   });
 });

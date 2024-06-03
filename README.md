@@ -2,7 +2,7 @@
 
 ## About The Project 📘
 
-This project demonstrates a modern application architecture with automated provisioning using Terraform on AWS, robust integration testing with Cypress, and CI/CD workflows managed through GitHub Actions. It is designed to provide a reliable, scalable, and automated deployment pipeline.
+This project demonstrates a modern application architecture with automated provisioning using Terraform on AWS, integration testing with Cypress, and CI/CD workflow managed through GitHub Actions. It is designed to provide a reliable, scalable, and automated deployment pipeline.
 
 ## Features 🌟
 
