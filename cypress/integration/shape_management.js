@@ -28,6 +28,26 @@ function addShape(x, y, z, color, shapeType) {
   cy.wait(2000);
 }
 
+function canvasToImage(selectorOrEl) {
+  let canvas =
+    typeof selectorOrEl === "object"
+      ? selectorOrEl
+      : document.querySelector(selector);
+  let image = document.createElement("img");
+  let canvasImageBase64 = canvas.toDataURL();
+
+  image.src = canvasImageBase64;
+  image.style = "max-width: 100%";
+  canvas.setAttribute("data-percy-modified", true);
+  canvas.parentElement.appendChild(image);
+  canvas.style = "display: none";
+}
+
+document
+  .querySelectorAll("canvas")
+  .forEach((selector) => canvasToImage(selector));
+
+
 describe("Functionality & Validation Testing", () => {
   beforeEach(() => {
     // Since the app is served on localhost:8080ß
@@ -344,6 +364,13 @@ describe("UI Testing", () => {
     // Click the add sphere button
     cy.get("#add_sphere").click();
     cy.wait(5000);
+
+    cy.document().then((cyDoc) => {
+      // .. insert the canvasToImage function from https://gist.github.com/Robdel12/d4e42b8d7dd73a145ecde238454df764 here
+      cyDoc
+        .querySelectorAll("canvas")
+        .forEach((selector) => canvasToImage(selector));
+    });
 
     // Take a snanpshotf
     cy.percySnapshot("Sphere Shape");
