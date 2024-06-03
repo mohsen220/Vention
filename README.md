@@ -48,25 +48,34 @@ These instructions will get you a copy of the project up and running on your loc
 Below is a table summarizing the test cases, their actions, and the expected outcomes for our application's functionality and validation testing.
 
 ## Functionality & Validation Testing
-| Test Case Description                                           | Action                                                  | Expected Outcome                                                   |
-|-----------------------------------------------------------------|---------------------------------------------------------|--------------------------------------------------------------------|
-| **Adding & Deleting 1 Sphere Object**                           | Add a sphere, validate, and delete                      | Shape added and removed correctly, validate shape attributes       |
-| **Adding & Deleting 1 Cube Object**                             | Add a cube, validate, and delete                        | Shape added and removed correctly, validate shape attributes       |
-| **Creating Multiple Shapes and Removing All**                   | Add multiple shapes, validate, and remove all           | Shapes added and all removed correctly, validate each shape        |
-| **Adding Sphere & Cube with Negative Position Coordinates**     | Add shapes with negative coordinates, validate, and remove all | Negative coordinates handled correctly, shapes validated and removed |
-| **Adding Shapes with Same & Different Dimensional Coordinates** | Add shapes at different coordinates, validate, and remove all | Validate positioning and attributes of each shape, remove all shapes correctly |
-| **Adding Shapes with Different Colors**                         | Add shapes with different colors, validate, and remove one by one | Colors applied correctly, each shape validated and removed sequentially |
+
+| Test Case Description                                              | Action                                                           | Expected Outcome                                                        |
+|--------------------------------------------------------------------|------------------------------------------------------------------|-------------------------------------------------------------------------|
+| **Adding & Deleting 1 Sphere Object**                              | Add a sphere, validate, and delete                               | Shape added and removed correctly, validate shape attributes            |
+| **Adding & Deleting 1 Cube Object**                                | Add a cube, validate, and delete                                 | Shape added and removed correctly, validate shape attributes            |
+| **Creating Multiple Shapes and Removing All**                      | Add multiple shapes, validate, and remove all                    | Shapes added and all removed correctly, validate each shape             |
+| **Creating Multiple Shapes - Different Positions**                 | Add multiple shapes at different positions, validate, and remove all | Shapes with different positions handled correctly, validate attributes  |
+| **Creating Multiple Shapes - Same Position**                       | Add multiple shapes at the same position, validate, and remove all | Shapes with same positions handled correctly, validate attributes       |
+| **Adding Sphere & Cube with Negative Position Coordinates**        | Add shapes with negative coordinates, validate, and remove all   | Negative coordinates handled correctly, shapes validated and removed    |
+| **Adding Shapes with Different Dimensional Coordinates**           | Add shapes at different coordinates, validate, and remove all    | Validate positioning and attributes of each shape, remove all shapes correctly |
+| **Adding Shapes with Different Colors**                            | Add shapes with different colors, validate, and remove one by one | Colors applied correctly, each shape validated and removed sequentially |
+| **Adding Sphere & Cube with Different Sign Coordinates and Colors**| Add shapes with different sign coordinates and colors, validate, and remove all | Handle mixed sign coordinates and colors, validate attributes, remove all |
+| **3D Object Interaction Test**                                      | Add a sphere, simulate interaction, validate                     | Correct interaction with 3D object, shape remains valid after interaction |
+| **Handles Window Resize Correctly**                                 | Resize window and validate                                        | Application adapts to window resize without errors                      |
 
 ## UI Testing
+
 | Test Case Description                             | Action                               | Expected Outcome                                    |
 |---------------------------------------------------|--------------------------------------|-----------------------------------------------------|
 | **UI Testing - Shape Rendering**                  | Render a shape, convert canvas to image, snapshot | Correct rendering, image visible, snapshot captured |
 
 ## Error Handling
-| Test Case Description                             | Action                                   | Expected Outcome                                    |
-|---------------------------------------------------|------------------------------------------|-----------------------------------------------------|
-| **Error Handling - Invalid Position (String)** :x:          | Add a sphere with string positions, validate | Handle invalid input gracefully, validate error or lack of shape creation |
-| **Error Handling - Invalid Position (Special Characters)** :interrobang: | Add a sphere with special characters as positions, validate | Handle invalid input gracefully, validate error or lack of shape creation |
+
+| Test Case Description                             | Action                                                       | Expected Outcome                                                        |
+|---------------------------------------------------|--------------------------------------------------------------|-------------------------------------------------------------------------|
+| **Error Handling - Invalid Position (String)**    | Add a sphere with string positions, validate                 | Handle invalid input gracefully, validate error or lack of shape creation |
+| **Error Handling - Invalid Position (Special Characters)** | Add a sphere with special characters as positions, validate | Handle invalid input gracefully, validate error or lack of shape creation |
+
 
 ## AWS Infrastructure Overview
 
