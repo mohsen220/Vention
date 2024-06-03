@@ -11,32 +11,46 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14' # Adjust this to your project's Node.js version
+          node-version: '14'
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm install
 
-      - name: Run Cypress Tests
-        uses: cypress-io/github-action@v2
+      - name: Install Percy CLI
+        run: npm install --save-dev @percy/cli
+
+      - name: Start application
+        run: npm run dev &
+        
+      - name: Wait for application to be ready
+        uses: jakejarvis/wait-action@v0.1.0
         with:
-          start: npm run dev
-          wait-on: 'http://localhost:8080'
-          wait-on-timeout: 60
-          record: true
-          parallel: true
-          browser: chrome
-          headless: true
-          config-file: 'cypress.config.js'
-          screenshot-dir: 'cypress/screenshots'
-          video: true
+          timeout: 60
+          url: 'http://localhost:8080'
+
+      - name: Run Cypress Tests with Percy
+        run: npx percy exec -- cypress run --config-file cypress.config.js
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+
+      - name: Upload Cypress Videos
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-videos
+          path: cypress/videos/
+
+      - name: Upload Cypress Screenshots
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots/
 
     
       - name: Restart and Deploy EC2 Server
