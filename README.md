@@ -111,6 +111,8 @@ AWS Infrastructure Overview
                      | (ventionuser)        |
                      +---------------------+
 
+
+```
 ### Components
 
 - **Route 53 DNS Zone**: Manages the domain `venti-on.com`.
