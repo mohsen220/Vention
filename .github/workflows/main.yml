@@ -35,7 +35,7 @@ jobs:
           url: 'http://localhost:8080'
 
       - name: Run Cypress Tests with Percy
-        run: npx percy exec -- cypress run --config-file cypress.config.js
+        run: npx cypress run --config-file cypress.config.js
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
