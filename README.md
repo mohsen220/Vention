@@ -126,10 +126,10 @@ AWS Infrastructure Overview
 ## UI Testing Challenges with Percy
 While enhancing my UI testing framework, I attempted to integrate Percy to capture visual regressions effectively. My objective was to use Percy's snapshot capabilities to visually compare different application states. However, I faced challenges in retrieving WebGL contexts, as Percy captures the DOM state and does not support direct WebGL context capture from `<canvas>` elements. Overcoming this hurdle remains a critical area for improvement in my testing strategy.
 
-## Cypress Visual Dashboard Reporting
-For comprehensive test reporting, I utilize Cypress's detailed reporting features. These features provide extensive logs and error messages, crucial for debugging and understanding test flows. 
+## Cypress Dashboard Reporting
+For comprehensive test reporting, I utilize Cypress's detailed reporting features. These features provide extensive logs and error messages, crucial for debugging and understanding test flows.
 
-![Cypress Test Report][images/pic1.png]
+![Cypress Test Report](/Vention/images/pic1.png)
 
 
 
