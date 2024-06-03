@@ -47,16 +47,24 @@ These instructions will get you a copy of the project up and running on your loc
 
 Below is a table summarizing the test cases, their actions, and the expected outcomes for our application's functionality and validation testing.
 
+## Functionality & Validation Testing
 | Test Case Description                                           | Action                                                  | Expected Outcome                                                   |
 |-----------------------------------------------------------------|---------------------------------------------------------|--------------------------------------------------------------------|
-| **Adding & Deleting 1 Sphere Object** :globe_with_meridians:    | Add a sphere, validate, and delete                      | Shape added and removed correctly, validate shape attributes       |
-| **Adding & Deleting 1 Cube Object** :cube:                      | Add a cube, validate, and delete                        | Shape added and removed correctly, validate shape attributes       |
-| **Creating Multiple Shapes and Removing All** :art:             | Add multiple shapes, validate, and remove all           | Shapes added and all removed correctly, validate each shape        |
-| **Adding Sphere & Cube with Negative Position Coordinates** :negative_squared_cross_mark: | Add shapes with negative coordinates, validate, and remove all | Negative coordinates handled correctly, shapes validated and removed |
-| **Adding Shapes with Same & Different Dimensional Coordinates** :black_nib: | Add shapes at different coordinates, validate, and remove all | Validate positioning and attributes of each shape, remove all shapes correctly |
-| **Adding Shapes with Different Colors** :rainbow:               | Add shapes with different colors, validate, and remove one by one | Colors applied correctly, each shape validated and removed sequentially |
-| **3D Object Interaction Test** :video_game:                     | Interact with a 3D sphere via simulated clicks and drags | Correct response to interaction, simulate dragging and clicking     |
-| **UI Testing - Shape Rendering** :framed_picture:               | Render a shape, convert canvas to image, snapshot       | Correct rendering, image visible, snapshot captured                |
-| **Error Handling - Invalid Position (String)** :x:              | Add a sphere with string positions, validate            | Handle invalid input gracefully, validate error or lack of shape creation |
+| **Adding & Deleting 1 Sphere Object**                           | Add a sphere, validate, and delete                      | Shape added and removed correctly, validate shape attributes       |
+| **Adding & Deleting 1 Cube Object**                             | Add a cube, validate, and delete                        | Shape added and removed correctly, validate shape attributes       |
+| **Creating Multiple Shapes and Removing All**                   | Add multiple shapes, validate, and remove all           | Shapes added and all removed correctly, validate each shape        |
+| **Adding Sphere & Cube with Negative Position Coordinates**     | Add shapes with negative coordinates, validate, and remove all | Negative coordinates handled correctly, shapes validated and removed |
+| **Adding Shapes with Same & Different Dimensional Coordinates** | Add shapes at different coordinates, validate, and remove all | Validate positioning and attributes of each shape, remove all shapes correctly |
+| **Adding Shapes with Different Colors**                         | Add shapes with different colors, validate, and remove one by one | Colors applied correctly, each shape validated and removed sequentially |
+
+## UI Testing
+| Test Case Description                             | Action                               | Expected Outcome                                    |
+|---------------------------------------------------|--------------------------------------|-----------------------------------------------------|
+| **UI Testing - Shape Rendering**                  | Render a shape, convert canvas to image, snapshot | Correct rendering, image visible, snapshot captured |
+
+## Error Handling
+| Test Case Description                             | Action                                   | Expected Outcome                                    |
+|---------------------------------------------------|------------------------------------------|-----------------------------------------------------|
+| **Error Handling - Invalid Position (String)** :x:          | Add a sphere with string positions, validate | Handle invalid input gracefully, validate error or lack of shape creation |
 | **Error Handling - Invalid Position (Special Characters)** :interrobang: | Add a sphere with special characters as positions, validate | Handle invalid input gracefully, validate error or lack of shape creation |
 
