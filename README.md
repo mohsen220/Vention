@@ -28,7 +28,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 1. **Clone the repo**
    ```sh
-   git clone https://github.com/your-username/your-project-name.git
+   git clone https://github.com/mohsen220/Vention.git
    cd your-project-name
 
 2. **Run Application**
