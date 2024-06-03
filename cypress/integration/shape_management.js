@@ -47,7 +47,6 @@ document
   .querySelectorAll("canvas")
   .forEach((selector) => canvasToImage(selector));
 
-
 describe("Functionality & Validation Testing", () => {
   beforeEach(() => {
     // Since the app is served on localhost:8080ß
@@ -341,6 +340,34 @@ describe("Functionality & Validation Testing", () => {
     });
   });
 
+  describe("3D Object Interaction Test", () => {
+    it("adds and interacts with a 3D sphere", () => {
+      // Specify the coordinates where the object is located on the canvas
+      let x = 2; // X-coordinate
+      let y = 2; // Y-coordinate
+      let z = 2; // Z-coordinate
+
+      // Assuming addShape is defined globally or accessible in this context
+      addShape(x, y, z, "#000000", "sphere");
+      cy.wait(2000); // Wait for the shape to be fully added and rendered
+
+      // Simulate the click on the canvas
+      // Coordinates for the initial mousedown event
+      const startX = 15;
+      const startY = 10;
+
+      // Coordinates for the mousemove and mouseup events, simulating the drag
+      const endX = 7;
+      const endY = 8;
+
+      // Get the canvas and simulate the click and drag
+      cy.get("canvas")
+        .trigger("mousedown", { button: 0, clientX: startX, clientY: startY })
+        .trigger("mousemove", { clientX: endX, clientY: endY })
+        .trigger("mouseup", { clientX: endX, clientY: endY });
+    });
+  });
+
   it("Handles window resize correctly", () => {
     // Trigger a window resize
     cy.viewport(800, 600); // Change viewport size
@@ -356,24 +383,13 @@ describe("UI Testing", () => {
 
   it("Should render the Shape Correctly", () => {
     // Fill the position and color inputs
-    cy.get("#pos_x").clear().type("2");
-    cy.get("#pos_y").clear().type("2");
-    cy.get("#pos_z").clear().type("2");
-    cy.get("#color").type("#000000");
-
-    // Click the add sphere button
-    cy.get("#add_sphere").click();
+    addShape("2", "2", "2", "#000000", "sphere");
     cy.wait(5000);
 
-    cy.document().then((cyDoc) => {
-      // .. insert the canvasToImage function from https://gist.github.com/Robdel12/d4e42b8d7dd73a145ecde238454df764 here
-      cyDoc
-        .querySelectorAll("canvas")
-        .forEach((selector) => canvasToImage(selector));
-    });
-
-    // Take a snanpshotf
-    cy.percySnapshot("Sphere Shape");
+    cy.canvasToImage();
+    cy.wait(5000); // Wait a bit longer to ensure all images are loaded
+    cy.get("img").should("be.visible"); // Check if images are visible
+    cy.percySnapshot("Page after converting canvas to images");
   });
 });
 

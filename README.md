@@ -1,42 +1,30 @@
-# Setup
-```
-npm install
-npm run dev
-```
+# Project Name 🌟
 
-Make sure you have `npm` installed.
+## About The Project 📘
 
-The project should open automatically in your browser at `localhost:8080`
+This project demonstrates a modern application architecture with automated provisioning using Terraform on AWS, robust integration testing with Cypress, and CI/CD workflows managed through GitHub Actions. It is designed to provide a reliable, scalable, and automated deployment pipeline.
 
+## Features 🌟
 
-# Assignment
+- **AWS Infrastructure**: Managed through Terraform for reproducible and consistent environments.
+- **Integration Testing**: Powered by Cypress to ensure the highest quality of code.
+- **Continuous Integration & Deployment**: Fully automated using GitHub Actions.
 
-Using this sample 3D project, develop a Cypress test suite to run integrated tests. The test coverage is left to your discretion. You can use the global variable `shapes` for validation. You need to provide your assignment in a form that's suitable for us to run (a Github repository, a zip file, etc.)
+## Prerequisites 🔍
 
-![screenshot](screenshot.png)
+Before starting, make sure you have the following tools installed:
+- Node.js (v14.x or above)
+- npm (v6.x or above) or Yarn
+- AWS CLI (configured with administrator access)
+- Terraform (v0.14.x or above)
 
----------------------------------------------------------- 
+## Getting Started 🚀
 
-# Vention Takehome Exercise
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-## Description
-This project provides a web application for managing 3D shapes within a browser. Users can add, position, and remove shapes such as spheres and cubes, modifying their attributes such as position and color dynamically through a user-friendly interface.
+### Installation
 
-## Features
-- **Add Shapes**: Users can add spheres and cubes to the scene.
-- **Modify Attributes**: Modify position (X, Y, Z coordinates) and color of the shapes.
-- **Remove Shapes**: Ability to remove the last added shape or all shapes from the scene.
-- **Responsive Design**: The application is responsive to window size changes, ensuring consistent user experience across different device sizes.
-
-## Technologies Used
-- **HTML/CSS** for layout and styling.
-- **JavaScript** for the application logic.
-- **Three.js** for rendering 3D graphics.
-- **Webpack** for bundling JavaScript files.
-- **Cypress** for automated testing of the application functionalities.
-
-## Setup Instructions
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-
+1. **Clone the repo**
+   ```sh
+   git clone https://github.com/your-username/your-project-name.git
+   cd your-project-name
