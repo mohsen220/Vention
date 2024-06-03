@@ -1,7 +1,7 @@
 provider "aws" {
   region     = "us-east-2"
-  access_key = "AKIAWKIWXKE5WLV6BLBN"
-  secret_key = "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"
+  access_key = env("AWS_ACCESS_KEY_ID")
+  secret_key = env("AWS_SECRET")
 }
 
 resource "aws_instance" "my_vention_instance" {
