@@ -121,6 +121,8 @@ AWS Infrastructure Overview
 - `Key Pair`: **VentionKey**, used for secure SSH access to the EC2 instance.
 - `IAM User`: **ventionuser**, with permissions to manage the above resources.
 
+### Observation & Discussion 
+
 
 
 

@@ -35,6 +35,7 @@ function canvasToImage(selectorOrEl) {
       : document.querySelector(selector);
   let image = document.createElement("img");
   let canvasImageBase64 = canvas.toDataURL();
+  cy.wait(5000);
 
   image.src = canvasImageBase64;
   image.style = "max-width: 100%";
