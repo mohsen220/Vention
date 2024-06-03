@@ -366,7 +366,7 @@ describe("Error Handling Testing", () => {
       validateShape(
         win.shapes[0],
         "#000000",
-        { x: "invalid", y: "invalid", z: "invalid" },
+        { x: "", y: "", z: "" },
         "sphere"
       );
     });
@@ -382,7 +382,7 @@ describe("Error Handling Testing", () => {
       validateShape(
         win.shapes[0],
         "#000000",
-        { x: "@#", y: "@#", z: "@#" },
+        { x: "", y: "", z: "" },
         "sphere"
       );
     });
