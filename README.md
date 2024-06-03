@@ -17,6 +17,7 @@ Before starting, make sure you have the following tools installed:
 - npm (v6.x or above) or Yarn
 - AWS CLI (configured with administrator access)
 - Terraform (v0.14.x or above)
+- Cypress 
 
 ## Getting Started 🚀
 
@@ -28,3 +29,15 @@ These instructions will get you a copy of the project up and running on your loc
    ```sh
    git clone https://github.com/your-username/your-project-name.git
    cd your-project-name
+
+2. **Run Application**
+   ```sh
+   npm run dev
+
+3. **Run Testing suite**
+   ```sh
+   npx cypress open
+
+4. **Run Testing Suite With Percy Integration**
+   ```sh
+   npx percy exec -- cypress run  
