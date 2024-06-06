@@ -39,7 +39,6 @@ jobs:
         with:
           config-file: cypress.config.js
           record: true
-          key: ${{ secrets.CYPRESS_RECORD_KEY }}
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           # PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
