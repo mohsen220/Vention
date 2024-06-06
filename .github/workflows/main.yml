@@ -34,7 +34,7 @@ jobs:
           timeout: 60
           url: 'http://localhost:8080'
 
-      - name: Run Cypress Tests with Percy
+      - name: Run Cypress Tests
         run: npx cypress run --config-file cypress.config.js
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
