@@ -35,10 +35,12 @@ jobs:
           url: 'http://localhost:8080'
 
       - name: Run Cypress Tests
-        run: npx cypress run --config-file cypress.config.js
+        uses: cypress-io/github-action@v2
+        with:
+          config-file: cypress.config.js
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          # PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 
       - name: Upload Cypress Videos
         uses: actions/upload-artifact@v2
